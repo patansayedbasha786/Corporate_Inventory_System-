@@ -1,6 +1,6 @@
 # Laptop Management System
 new_laptops = []
-# ADD LAPTOP DETAILS
+# Add Laptop Details
 n = int(input("Enter number of laptops: "))
 for i in range(n):
     print("\nEnter Laptop Details")
@@ -11,29 +11,37 @@ for i in range(n):
     Status = input("Enter Status: ")
     laptop = {"Laptop ID": laptop_id,"Brand": brand,"RAM":RAM,"Storage":Storage,"Status":Status}
     new_laptops.append(laptop)
-# UPDATE CONFIGURATION
+# Updated Configuration
 for laptop in new_laptops:
     print("\nUpdate Laptop Configuration")
     new_RAM= input("Enter New RAM: ")
     laptop["RAM"] = new_RAM
     new_Storage = input("Enter New Storage:")
     laptop["Storage"] = new_Storage
-# MODIFY ALLOCATION STATUS
+# Modify Allocation Status
 for laptop in new_laptops:
     print("\nModify  Status")
     new_Status = input("Enter New  Status: ")
     laptop["Status"] = new_Status
-# DISPLAY UPDATED RECORDS
-print("\nUPDATED LAPTOP RECORDS")
+# Display Updated records
 for laptop in new_laptops:
     print("-------------------")
-    for key, value in laptop.items():
-        print(key, ":", value)
-# BRAND-WISE LAPTOP REPORT
-print("\nBRAND-WISE LAPTOP REPORT")
+    print("Laptop ID :", laptop["Laptop ID"])
+    print("Brand     :", laptop["Brand"])
+    print("RAM       :", laptop["RAM"])
+    print("Storage   :", laptop["Storage"])
+    print("Status    :", laptop["Status"])
+# Brand-Wise Laptop Report
+print("Brand-Wise Laptop Report:")
+brands = []
 for laptop in new_laptops:
-    print("-------------------")
-    print("Brand :", laptop["Brand"])
-    print("RAM :", laptop["RAM"])
-    print("Storage :", laptop["Storage"])
-    print("Status :", laptop["Status"])
+    if laptop["Brand"] not in brands:
+        brands.append(laptop["Brand"])
+for brand in brands:
+    print("Brand :", brand)
+    for laptop in new_laptops:
+        if laptop["Brand"] == brand:
+            print("Laptop ID :", laptop["Laptop ID"])
+            print("RAM       :", laptop["RAM"])
+            print("Storage   :", laptop["Storage"])
+            print("Status    :", laptop["Status"])
