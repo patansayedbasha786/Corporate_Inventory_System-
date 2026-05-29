@@ -1,20 +1,18 @@
 
 inventory=[]
-n=int(input("ENTER THE NUMBER OF ASSETS: "))# here we need to enter the Count of the inventory 
-for i in range(n):                     # the loop will work at the number of times we have entered the count of the inventory
+asset_id=[101,102,103,104,105]
+asset_name=["laptop","mouse","keyboard","monitor","printer"]
+quantity=[10,20,15,5,8]
+brand=["dell","logitech","asus","samsung","hp"]
 
-    print("enter the asset details :")
-    asset_id=input("ENTER THE ASSET ID:")
-    asset_name=input("ENTER THE ASSET NAME:")
-    quantity=int(input("ENTER THE ASSET QUANTITY  :"))
-    brand=input("ENTER THE BRAND OF THE ASSET :")
-    if quantity>0:        # the condition is if the quantity is >0 then the status will be available otherwise it will be out of stock
+for i in range(len(asset_id)):
+    if quantity[i]>0:        # the condition is if the quantity is >0 then the status will be available otherwise it will be out of stock
         status="available"
     else:
         status="out of stock"
 
     asset={
-        "asset id":asset_id,"asset name":asset_name,"quantity":quantity,"brand":brand,"status":status}
+        "asset id":asset_id[i],"asset name":asset_name[i],"quantity":quantity[i],"brand":brand[i],"status":status}
     inventory.append(asset) # here we are appending the asset details to the inventory list
 
 
